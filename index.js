@@ -50,11 +50,11 @@ var execute = function( cmd, options, callback ) {
 		cmd += ' ' + options.params.join( " " );
 	}
 	exec( cmd, execOptions, function( err, stdo, stde ) {
-		if ( !options.quiet ) {
+	/*	if ( !options.quiet ) {
 			process.stderr.write( stde.toString() );
-		}
+		} */
 		if ( typeof callback === 'function' ) {
-			callback( err, options.stdoutAsBuffer ? stdo : stdo.toString() );
+			callback( err, options.stdoutAsBuffer ? stdo : stdo.toString(), stde );
 		}
 	} );
 };
